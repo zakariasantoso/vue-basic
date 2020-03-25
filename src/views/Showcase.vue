@@ -1,11 +1,23 @@
 <template>
-	<div class="note-page">
-		<app-input
-			name="name"
-			label="Name"
-			v-model="name"
-		/>
-		<app-button :is-full-width="true" :isLoading="false">Tes</app-button>
+	<div class="showcase-page">
+		<section>
+			<h3>App Input</h3>
+			<app-input
+				name="name"
+				label="Name"
+				v-model="name"
+			/>
+		</section>
+
+		<section>
+			<h3>App Button</h3>
+			<app-button 
+				:is-full-width="true"
+				:isLoading="false"
+			>
+				App Button
+			</app-button>
+		</section>
 	</div>
 </template>
 
@@ -27,6 +39,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.showcase-page {
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 10px 20px;
+		padding: 10px;
 
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+
+	h3 {
+		text-align: center;
+	}
+}
 </style>
