@@ -1,5 +1,5 @@
 <template>
-  <span class="app-loading">
+  <div class="app-loading">
     <div class="al-wrapper" :style="{height:`${size}px`,width:`${size}px`,color:color}">
       <div class="al-content">
         <svg
@@ -20,7 +20,7 @@
         </svg>
       </div>
     </div>
-  </span>
+  </div>
 </template>
 
 <script>
@@ -40,9 +40,11 @@ export default {
 
 <style lang="scss" scoped>
 .app-loading {
+  display: inline-block;
+
   .al-wrapper {
     position: relative;
-    display: inline-flex;
+    display: flex;
   }
 
   .al-overlay {
