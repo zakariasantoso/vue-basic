@@ -73,7 +73,7 @@ export default {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	padding: 10px 20px;
+	margin-bottom: 10px;
 
 	label {
 		margin-bottom: 2px;
@@ -90,13 +90,14 @@ export default {
 
 	.ai-clear {
 		position: absolute;
-		top: 10px;
-		right: 20px;
+		top: 0px;
+		right: 0px;
 		width: 18px;
 
 		border-radius: 50%;
 		font-size: 14px;
 		text-align: center;
+		user-select: none;
 
 		&:hover {
 			background-color: $main-background-color;
