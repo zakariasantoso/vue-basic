@@ -18,17 +18,31 @@
 				App Button
 			</app-button>
 		</section>
+
+		<section>
+			<h3>App Loading</h3>
+			<div class="content-center">
+				<app-loading 
+					size="30"
+					color="black"
+				>
+					App Button
+				</app-loading>
+			</div>
+		</section>
 	</div>
 </template>
 
 <script>
 import AppInput from '../components/frames/inputs/AppInput'
 import AppButton from '../components/frames/inputs/AppButton'
+import AppLoading from '../components/frames/AppLoading'
 
 export default {
 	components: {
 		AppInput,
-		AppButton
+		AppButton,
+		AppLoading
 	},
 
 	data: () => {
@@ -50,6 +64,11 @@ export default {
 
 		border: 1px solid black;
 		border-radius: 5px;
+
+		> .content-center {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	h3 {
