@@ -51,6 +51,16 @@
 				</app-button>
 			</div>
 		</section>
+
+		<section>
+			<h3>App Check Box</h3>
+			<div class="content-center">
+				<app-check 
+					name="isChecked"
+					v-model="isChecked"
+				/>
+			</div>
+		</section>
 	</div>
 </template>
 
@@ -59,19 +69,22 @@ import AppInput from '../components/frames/inputs/AppInput'
 import AppButton from '../components/frames/AppButton'
 import AppLoading from '../components/frames/AppLoading'
 import AppModal from '../components/frames/AppModal'
+import AppCheck from '../components/frames/inputs/AppCheckBox'
 
 export default {
 	components: {
 		AppInput,
 		AppButton,
 		AppLoading,
-		AppModal
+		AppModal,
+		AppCheck
 	},
 
 	data: () => {
 		return {
 			name: '',
-			isModalOpen: true,
+			isModalOpen: false,
+			isChecked: true
 		}
 	}
 }
