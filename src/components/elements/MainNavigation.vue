@@ -11,7 +11,7 @@
 
 		<ul>
 			<li>
-				<router-link to="/note">Notes</router-link>
+				<router-link to="/showcase">RnD</router-link>
 			</li>
 		</ul>
 	</nav>
