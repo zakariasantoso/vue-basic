@@ -11,7 +11,7 @@
 
 <script>
 import Layout from "./layouts/default.vue"
-import MainNavigation from "./components/elements/MainNavigation"
+import MainNavigation from "./components/templates/MainNavigation"
 
 export default {
   components: {
