@@ -30,24 +30,48 @@
 				</app-loading>
 			</div>
 		</section>
+
+		<section>
+			<h3>App Modal</h3>
+			<div class="content-center">
+				<app-modal
+					title="Modal"
+					:isModalOpen="isModalOpen"
+					@close="isModalOpen = false"
+				>
+					Modal Body
+				</app-modal>
+
+				<app-button 
+					:is-full-width="true"
+					:isLoading="false"
+					@click="isModalOpen = true"
+				>
+					Open Modal
+				</app-button>
+			</div>
+		</section>
 	</div>
 </template>
 
 <script>
 import AppInput from '../components/frames/inputs/AppInput'
-import AppButton from '../components/frames/inputs/AppButton'
+import AppButton from '../components/frames/AppButton'
 import AppLoading from '../components/frames/AppLoading'
+import AppModal from '../components/frames/AppModal'
 
 export default {
 	components: {
 		AppInput,
 		AppButton,
-		AppLoading
+		AppLoading,
+		AppModal
 	},
 
 	data: () => {
 		return {
-			name: ''
+			name: '',
+			isModalOpen: true,
 		}
 	}
 }
