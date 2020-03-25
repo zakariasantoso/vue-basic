@@ -23,12 +23,19 @@ export default {
 	display: flex;
 	flex-direction: column;
 	padding: 0px 30px 30px;
+	margin-bottom: 10px;
 
 	border: 1px solid black;
 	border-radius: 5px;
 
 	h3 {
 		text-align: center;
+	}
+
+	form > * {
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
 	}
 }
 </style>
