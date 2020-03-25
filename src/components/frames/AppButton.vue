@@ -1,5 +1,5 @@
 <template>
-	<button :class="{'full-width': isFullWidth}"
+	<button :class="[{'full-width': isFullWidth}, `${theme}-theme`]"
 		@click="$emit('click')"
 		:disabled="isLoading"
 	>
@@ -24,6 +24,10 @@ export default {
 		isLoading: {
 			type: Boolean,
 			default: false
+		},
+		theme: {
+			type: String,
+			default: 'default'
 		}
 	}
 }
@@ -47,6 +51,16 @@ button {
 
 	&:active {
 		background-color: rgba($color: black, $alpha: 0.5);
+	}
+
+	&.primary-theme {
+		background-color: rgb(0, 123, 255)
+	}
+	&.error-theme {
+		background-color: rgb(220, 53, 69)
+	}
+	&.success-theme {
+		background-color: rgb(40, 167, 69)
 	}
 }
 </style>
