@@ -35,15 +35,14 @@ button {
 	min-width: 120px;
 
 	background-color: $main-background-color;
-	border: 1px solid gray;
+	border: 1px solid black;
 	border-radius: 5px;
 	color: $main-text-color;
-	// line-height: 16px;
 	font-size: 16px;
 	outline: none;
 
 	&:hover {
-		font-weight: bold;
+		text-decoration: underline;
 	}	
 
 	&:active {
