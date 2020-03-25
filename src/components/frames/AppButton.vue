@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import AppLoading from '../AppLoading'
+import AppLoading from './AppLoading'
 
 export default {
 	components: {
