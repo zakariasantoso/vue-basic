@@ -58,6 +58,7 @@
 				<app-check 
 					name="isChecked"
 					v-model="isChecked"
+					:disabled="true"
 				/>
 			</div>
 		</section>
