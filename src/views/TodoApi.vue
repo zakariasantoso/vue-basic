@@ -49,7 +49,7 @@ import AppLoading from "@/components/frames/AppLoading";
 
 import TodoApi from "@/components/elements/TodoApiCard";
 
-import { getTodosApi, postTodosApi, putTodosApi, deleteTodoApi } from "@/apis/todo";
+import { getTodosApi, postTodoApi, putTodoApi, deleteTodoApi } from "@/apis/todo";
 
 export default {
 	components: {
@@ -97,7 +97,7 @@ export default {
 		addTodo(todo) {
 			this.isSubmitLoading = true;
 
-			postTodosApi(todo.userId, todo.title, todo.body)
+			postTodoApi(todo.userId, todo.title, todo.body)
 				.then(response => {
 					this.todos.unshift(response.data);
 				})
@@ -129,7 +129,7 @@ export default {
 		editTodo(todo) {
 			this.isSubmitLoading = true;
 
-			putTodosApi(this.edittedId, todo.userId, todo.title, todo.body)
+			putTodoApi(this.edittedId, todo.userId, todo.title, todo.body)
 				.then((response) => {
 					const index = this.todos.findIndex((todo) => {
 						return todo.id == this.edittedId;
