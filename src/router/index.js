@@ -24,6 +24,11 @@ const routes = [
     path: '/todoApi',
     name: 'TodoAPI',
     component: () => import(/* webpackChunkName: "todoAPI" */ '../views/TodoApi.vue')
+  },
+  {
+    path: '/store',
+    name: 'Store',
+    component: () => import(/* webpackChunkName: "Store" */ '../views/Store.vue')
   }
 ]
 

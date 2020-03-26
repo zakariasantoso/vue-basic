@@ -10,6 +10,9 @@
 			<li>
 				<router-link to="/todoApi">Todo API</router-link>
 			</li>
+			<li>
+				<router-link to="/store">Store</router-link>
+			</li>
 		</ul>
 
 		<ul>
