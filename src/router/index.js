@@ -19,6 +19,11 @@ const routes = [
     path: '/todo',
     name: 'TodoList',
     component: () => import(/* webpackChunkName: "todo" */ '../views/TodoList.vue')
+  },
+  {
+    path: '/todoApi',
+    name: 'TodoAPI',
+    component: () => import(/* webpackChunkName: "todoAPI" */ '../views/TodoApi.vue')
   }
 ]
 

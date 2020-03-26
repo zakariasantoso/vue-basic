@@ -7,6 +7,9 @@
 			<li>
 				<router-link to="/todo">Todo List</router-link>
 			</li>
+			<li>
+				<router-link to="/todoApi">Todo API</router-link>
+			</li>
 		</ul>
 
 		<ul>
