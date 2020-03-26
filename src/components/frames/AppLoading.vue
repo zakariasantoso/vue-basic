@@ -82,16 +82,19 @@ export default {
     0% {
       stroke-dasharray: 1, 200;
       stroke-dashoffset: 0px;
+      color: red;
     }
 
     50% {
       stroke-dasharray: 100, 200;
       stroke-dashoffset: -15px;
+      color: blue;
     }
 
     100% {
       stroke-dasharray: 100, 200;
       stroke-dashoffset: -125px;
+      color: yellow;
     }
   }
 
