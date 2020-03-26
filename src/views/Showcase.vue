@@ -1,6 +1,15 @@
 <template>
 	<div class="showcase-page">
 		<section>
+			<h3>Authenticated User</h3>
+			<div class="content-center">
+				<div>{{ getUser.name }}</div>
+				<div>{{ getUser.email }}</div>
+				<div>{{ getUser.age }}</div>
+			</div>
+		</section>
+
+		<section>
 			<h3>App Input</h3>
 			<app-input
 				name="name"
@@ -87,6 +96,12 @@ export default {
 			isModalOpen: false,
 			isChecked: true
 		}
+	},
+
+	computed: {
+		getUser() {
+			return this.$store.getters.getAuthenticatedUser
+		}
 	}
 }
 </script>
@@ -105,7 +120,8 @@ export default {
 
 		> .content-center {
 			display: flex;
-			justify-content: center;
+			align-items: center;
+			flex-direction: column;
 		}
 	}
 
