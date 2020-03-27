@@ -1,28 +1,37 @@
 <template>
   <div class="store-page">
-    <div>
-      <div>{{ getUser.name }}</div>
-      <div>{{ getUser.email }}</div>
-      <div>{{ getUser.age }}</div>
-    </div>
-    <app-button @click="login()">Button</app-button>
+    <app-form title="Login">
+      <app-input v-model="form.email" name="email" label="Email"></app-input>
+      <app-input v-model="form.password" name="password" label="Password"></app-input>
+    <app-button @click="login()" :isFullWidth="true" theme="success">Login</app-button>
+    </app-form>
   </div>
 </template>
 
 <script>
 import AppButton from "@/components/frames/AppButton"
+import AppForm from "@/components/frames/inputs/AppForm"
+import AppInput from "@/components/frames/inputs/AppInput"
 // import {SET_USER} from "@/store/mutations"
 export default {
   components: {
-    AppButton
+    AppButton,
+    AppForm,
+    AppInput
+    },
+  data: () => {
+    return {
+      form: {
+        email: "",
+        password: ""
+      }
+    }
   },
-
   methods: {
     login() {
       this.$store.dispatch("login", {
-        name: "Jhon",
-        email: "jhon@jhon.jhon",
-        age: 17
+        email: this.form.email,
+        password: this.form.password
       })
     }
   },
