@@ -13,6 +13,9 @@
 			<li>
 				<router-link to="/store">Store</router-link>
 			</li>
+			<li>
+				<router-link to="/route">Route Guard</router-link>
+			</li>
 		</ul>
 
 		<ul>

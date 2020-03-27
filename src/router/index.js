@@ -31,6 +31,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "Store" */ '../views/Store.vue')
   },
   {
+    path: '/route',
+    name: 'RouteGuard',
+    component: () => import(/* webpackChunkName: "RouteGuard" */ '../views/RouteGuard.vue')
+  },
+  {
     path: '/profile',
     name: 'Profile',
     component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
