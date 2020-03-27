@@ -1,13 +1,6 @@
 <template>
 	<div class="showcase-page">
-		<section>
-			<h3>Authenticated User</h3>
-			<div class="content-center">
-				<div>{{ getUser.name }}</div>
-				<div>{{ getUser.email }}</div>
-				<div>{{ getUser.age }}</div>
-			</div>
-		</section>
+		
 
 		<section>
 			<h3>App Input</h3>
