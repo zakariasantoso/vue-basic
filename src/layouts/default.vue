@@ -47,6 +47,7 @@ export default {
 .default-layout {
   display: flex;
   flex-direction: column;
+  height: 100%;
 
   header {
     display: flex;
@@ -58,6 +59,11 @@ export default {
 
   main {
     min-height: 100vh;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-right: -17px;
+    padding-right: -17px;
   }
 
   footer {

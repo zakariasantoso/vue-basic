@@ -33,7 +33,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 button {
 	padding: 5px 10px;
 	min-width: 120px;
