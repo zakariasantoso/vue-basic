@@ -29,6 +29,28 @@ const routes = [
     path: '/store',
     name: 'Store',
     component: () => import(/* webpackChunkName: "Store" */ '../views/Store.vue')
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import(/* webpackChunkName: "Profile" */ '../views/Profile.vue'),
+    children: [
+      {
+        path: 'account',
+        name: 'Account',
+        component: () => import(/* webpackChunkName: "Account" */ '../views/Account.vue')
+      },
+      {
+        path: 'setting',
+        name: 'Setting',
+        component: () => import(/* webpackChunkName: "Setting" */ '../views/Setting.vue')
+      },
+      {
+        path: 'privacy',
+        name: 'Privacy',
+        component: () => import(/* webpackChunkName: "Privacy" */ '../views/Privacy.vue')
+      },
+    ]
   }
 ]
 
