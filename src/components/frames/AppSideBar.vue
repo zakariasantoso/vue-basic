@@ -32,9 +32,10 @@ export default {
     overflow: hidden;
     border-top: 1px solid #dfdfdf;
     border-bottom: 1px solid #dfdfdf;
-    &.close{
-    width: 0;
-    transform: translateX(-100%);
+    height: 100vh;
+    &.close { 
+      width: 0;
+      transform: translateX(-100%);
     }
     ul {
       list-style: none;
