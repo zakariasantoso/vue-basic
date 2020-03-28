@@ -23,12 +23,12 @@
 			</app-button>
 		</app-form>
 
-		<app-loading v-if="todos.length < 1" class="ta-loading"/>
-
-		<div class="ta-list">
+		<app-loading v-if="isApiLoading" class="ta-loading"/>
+		<div class="no-data" v-if="todos.length < 1 && !isApiLoading">No Data</div>
+		<div class="ta-list" v-else-if="todos.length > 0 && !isApiLoading">
 			<template v-for="(todo, index) in todos">
+				<router-link :to="`/todo/${todo.id}`" :key="index">
 				<todo-api
-					:key="index"
 					:id="todo.id"
 					:title="todo.title"
 					:body="todo.body"
@@ -36,6 +36,7 @@
 					@delete="deleteTodo(todo.id)"
 					@edit="setEditted(todo.id)"
 				></todo-api>
+				</router-link>
 			</template>
 		</div>
 	</div>
@@ -71,7 +72,9 @@ export default {
 				title: "",
 				body: ""
 			},
-			todos: []
+			todos: [],
+			isApiLoading: false,
+			isApiLoaded: false
 		};
 	},
 	methods: {
@@ -102,7 +105,13 @@ export default {
 					this.todos.unshift(response.data);
 				})
 				.catch(error => {
-					alert(error.response.data);
+					console.log(error)
+					const id = this.todos[0].id + 1;
+					const data = {
+						id,
+						...this.form
+					}
+					this.todos.unshift(data);
 				})
 				.finally(() => {
 					this.isSubmitLoading = false;
@@ -136,7 +145,15 @@ export default {
 					});
 				this.todos[index] = response.data;
 				})
-				.catch((error) => {
+				.catch((error) => {	
+					const index = this.todos.findIndex((todo) => {
+						return todo.id == this.edittedId;
+					});
+					const data = {
+						id: this.edittedId,
+						...this.form
+					}
+					this.todos[index] = data;
 					console.log(error.response);
 				})
 				.finally(() => {
@@ -158,6 +175,10 @@ export default {
 				})
 				.catch((error) => {
 					console.log(error);
+					const index = this.todos.findIndex((todo) => {
+						return todo.id == id;
+					});
+					this.todos.splice(index, 1);
 				})
 				.finally(() => {
 					const index = this.deletingIds.findIndex((deletingId) => {
@@ -169,10 +190,31 @@ export default {
 	},
 
 	mounted() {
+		this.isApiLoading = true
 		getTodosApi()
 			.then(response => {
 				this.todos = response.data;
-			});
+				this.isApiLoaded = true;
+			})
+			.catch(() => {
+				this.todos = [
+					{
+						userId: 1,
+						id: 1,
+						title: "Latihan Vue.JS",
+						body: "Belajar Vue.JS"
+					},
+					{
+						userId: 1,
+						id: 2,
+						title: "Latihan Javascript",
+						body: "Belajar Javascript"
+					}
+				]
+			})
+			.finally(() => {
+				this.isApiLoading = false;
+			})
 	}
 };
 </script>
