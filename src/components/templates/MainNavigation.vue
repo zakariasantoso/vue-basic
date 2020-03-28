@@ -16,6 +16,9 @@
 			<li>
 				<router-link to="/route">Route Guard</router-link>
 			</li>
+			<li>
+				<router-link to="/mixin">Mixin</router-link>
+			</li>
 		</ul>
 
 		<ul>

@@ -61,6 +61,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "Privacy" */ '../views/Privacy.vue')
       },
     ]
+  },
+  {
+    path: '/mixin',
+    name: 'Mixin',
+    component: () => import(/* webpackChunkName: "mixin" */ '../views/Mixin.vue')
   }
 ]
 
