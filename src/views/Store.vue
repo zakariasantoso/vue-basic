@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex"
 import AppButton from "@/components/frames/AppButton"
 import AppForm from "@/components/frames/inputs/AppForm"
 import AppInput from "@/components/frames/inputs/AppInput"
@@ -24,26 +25,37 @@ export default {
       form: {
         email: "",
         password: ""
-      }
+      },
     }
   },
   methods: {
     login() {
-      this.$store.dispatch("login", {
+      this.loginStore({
         email: this.form.email,
         password: this.form.password
       })
-    }
+      // this.$store.dispatch("login", {
+      //   email: this.form.email,
+      //   password: this.form.password
+      // })
+    },
+    // ...mapActions(["login"]) 
+    ...mapActions({
+      loginStore: "login"
+    }) 
   },
 
 	computed: {
-		getUser() {
-			return this.$store.getters.getAuthenticatedUser
-		}
+		// getUser() {
+		// 	return this.$store.getters.getAuthenticatedUser
+    // },
+    ...mapGetters(["getAuthenticatedUser"])
 	}
 }
 </script>
 
 <style>
-
+.store-page {
+  padding: 20px 30px;
+}
 </style>
