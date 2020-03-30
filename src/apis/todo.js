@@ -23,3 +23,6 @@ export const putTodoApi = (id, userId, title, body) => {
 export const deleteTodoApi = (id) => {
     return axios.delete(`${baseUrl}posts/${id}`);
 }
+export const getTodoApi = (id) => {
+    return axios.get(`${baseUrl}posts/${id}`);
+}
