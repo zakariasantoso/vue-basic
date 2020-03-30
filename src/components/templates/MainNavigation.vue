@@ -19,6 +19,9 @@
 			<li>
 				<router-link to="/mixin">Mixin</router-link>
 			</li>
+			<li>
+				<router-link to="/transition">Vue Transition</router-link>
+			</li>
 		</ul>
 
 		<ul>

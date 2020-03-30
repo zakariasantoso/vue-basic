@@ -67,6 +67,11 @@ const routes = [
     path: '/mixin',
     name: 'Mixin',
     component: () => import(/* webpackChunkName: "mixin" */ '../views/Mixin.vue')
+  },
+  {
+    path: '/transition',
+    name: 'Transition',
+    component: () => import(/* webpackChunkName: "transition" */ '../views/Transition.vue')
   }
 ]
 
