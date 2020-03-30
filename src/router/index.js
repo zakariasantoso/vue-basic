@@ -22,6 +22,7 @@ const routes = [
   },
   {
     path: '/todo/:id',
+    // :id = :id menjadi variabel dan bisa ditangkap menggunakan $route.params.id (yang diambil .id-nya)
     name: 'TodoDetail',
     component: () => import(/* webpackChunkName: "todoDetail" */ '../views/TodoDetail.vue')
   },
