@@ -1,34 +1,39 @@
 <template>
-	<div class="app-modal" v-if="isModalOpen">
-		<div class="am-backdrop" 
-			@click="closeModal()"
-		/>
-		<div class="am-body">
-			<span class="am-close" @click="closeModal()">&times;</span>
+<div>
+		<div class="app-modal">
+			<div class="am-backdrop" 
+				@click="closeModal()"
+				v-if="isModalOpen"
+			/>
+		<transition name="modal">
+			<div class="am-body" v-if="isModalOpen"	>
+				<span class="am-close" @click="closeModal()">&times;</span>
 
-			<div class="am-title">
-				{{ title }}
+				<div class="am-title">
+					{{ title }}
+				</div>
+
+				<div class="am-content">
+					<slot/>
+				</div>
+
+				<div class="am-action" v-if="hasAction">
+					<app-button
+						@click="closeModal()"
+					>
+						Close
+					</app-button>
+
+					<button
+						@click="( ($event) => {executeAction($event)})"
+					>
+						{{ actionText }}
+					</button>
+				</div>
 			</div>
-
-			<div class="am-content">
-				<slot/>
-			</div>
-
-			<div class="am-action" v-if="hasAction">
-				<app-button
-					@click="closeModal()"
-				>
-					Close
-				</app-button>
-
-				<app-button
-					@click="executeAction()"
-				>
-					{{ actionText }}
-				</app-button>
-			</div>
+			</transition>
 		</div>
-	</div>
+</div>
 </template>
 
 <script>
@@ -63,7 +68,8 @@ export default {
 			this.$emit('close');
 		},
 
-		executeAction() {
+		executeAction(e) {
+			console.log("Event : ", e);
 			this.$emit('action');
 		}
 	}
@@ -73,17 +79,17 @@ export default {
 <style lang="scss">
 .app-modal {
 	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	// top: 0;
+	// right: 0;
+	// bottom: 0;
+	// left: 0;
 	z-index: 100;
 
-	display: flex;
-	align-items: center;
+	// display: flex;
+	// align-items: center;
 
 	.am-backdrop {
-		position: absolute;
+		position: fixed;
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -93,12 +99,15 @@ export default {
 	}
 
 	.am-body {
-		position: relative;
+		position: fixed;
 		min-width: 300px;
-		max-width: 80%;
+		width: 80%;
 		min-height: 80%;
 		height: 200px;
-		margin: 0px auto;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		// margin: 0px auto;
 		padding: 10px 20px;
 
 		flex: 0 1 80%;
@@ -148,4 +157,24 @@ export default {
 		}
 	}
 }
+	.modal-enter-active {
+    transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		> .am-backdrop {
+			background-color: transparent !important;
+		}
+  }
+  .modal-leave-active {
+		transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+		> .am-backdrop {
+			background-color: transparent !important;
+		}
+  }
+  .modal-leave-to, .modal-enter {
+		transform: translate(-50%, -150%) scale(2) !important;
+    opacity: 0;
+  }
+  .modal-enter-to, .modal-leave {
+		transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1;
+  }
 </style>
